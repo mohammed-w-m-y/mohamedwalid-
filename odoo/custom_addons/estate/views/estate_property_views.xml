@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="property_view_form" model="ir.ui.view">
+        <field name="name">estate.property.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="General Info.">
+                            <field name="description"/>
+                            <field name="date_availability"/>
+                            <field name="postcode"/>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
+                            <field name="living_area"/>
+                            <field name="facades"/>
+                        </group>
+
+                        <group string="Additional Info.">
+                            <field name="bedrooms"/>
+                            <field name="garage"/>
+                            <field name="garden"/>
+                            <field name="garden_area"/>
+                            <field name="garden_orientation"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="estate_property_action" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="estate_menu_root" name="Real Estate">
+        <menuitem id="estate_first_level_menu" name="Advertisements">
+            <menuitem id="estate_property_menu_action" name="Properties" action="estate_property_action"/>
+        </menuitem>
+    </menuitem>
+
+</odoo>
